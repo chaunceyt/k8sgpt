@@ -16,7 +16,10 @@ package integration
 import (
 	"errors"
 	"fmt"
+
 	"github.com/k8sgpt-ai/k8sgpt/pkg/integration/aws"
+
+	"github.com/k8sgpt-ai/k8sgpt/pkg/integration/argo"
 
 	"github.com/k8sgpt-ai/k8sgpt/pkg/common"
 	"github.com/k8sgpt-ai/k8sgpt/pkg/integration/prometheus"
@@ -49,6 +52,7 @@ var integrations = map[string]IIntegration{
 	"trivy":      trivy.NewTrivy(),
 	"prometheus": prometheus.NewPrometheus(),
 	"aws":        aws.NewAWS(),
+	"argo":       argo.NewArgo(),
 }
 
 func NewIntegration() *Integration {
