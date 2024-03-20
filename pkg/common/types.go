@@ -17,6 +17,8 @@ import (
 	"context"
 
 	trivy "github.com/aquasecurity/trivy-operator/pkg/apis/aquasecurity/v1alpha1"
+	externalsecretsv1alpha1 "github.com/external-secrets/external-secrets/apis/externalsecrets/v1alpha1"
+	externalsecretsv1beta1 "github.com/external-secrets/external-secrets/apis/externalsecrets/v1beta1"
 	openapi_v2 "github.com/google/gnostic/openapiv2"
 	"github.com/k8sgpt-ai/k8sgpt/pkg/ai"
 	"github.com/k8sgpt-ai/k8sgpt/pkg/kubernetes"
@@ -62,6 +64,14 @@ type PreAnalysis struct {
 	Gateway                  gtwapi.Gateway
 	HTTPRoute                gtwapi.HTTPRoute
 	// Integrations
+
+	// ExternalSecrets
+	SecretStore           externalsecretsv1beta1.SecretStore
+	ClusterSecretStore    externalsecretsv1beta1.ClusterSecretStore
+	ExternalSecret        externalsecretsv1beta1.ExternalSecret
+	ClusterExternalSecret externalsecretsv1beta1.ClusterExternalSecret
+	PushSecret            externalsecretsv1alpha1.PushSecret
+
 	TrivyVulnerabilityReport trivy.VulnerabilityReport
 	TrivyConfigAuditReport   trivy.ConfigAuditReport
 }
